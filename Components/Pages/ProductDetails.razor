@@ -1,0 +1,27 @@
+﻿@using BlazorPracticaClaseVirtual.Models
+@* <h3>Detalles del producto</h3>
+ *@
+@if (product != null)
+{
+@* 	<div>
+		<h3 class="text-success">Nombre: @product.Name</h3>
+		<h4 class="text-success">Precio: @product.Price</h4>
+		<h5 class="text-success">Descripción: @product.Description</h5>
+	</div> *@
+	<ul class="list-group  w-50 ">
+		<li class="list-group-item active border-secondary" aria-current="true" style="background-color: cornflowerblue; color:black;">Detalles del producto</li>
+		<li class="list-group-item text-dark">Producto: @product.Name</li>
+		<li class="list-group-item text-dark">Precio: @product.Price</li>
+		<li class="list-group-item text-dark">Descripción: @product.Description</li>
+	</ul>
+}
+else
+{
+	<p>No hay información del producto disponible</p>
+}
+
+
+@code {
+	[Parameter]
+	public Product product { get; set; }
+}

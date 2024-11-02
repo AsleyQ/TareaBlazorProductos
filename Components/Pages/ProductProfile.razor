@@ -1,0 +1,31 @@
+﻿@page "/productprofile"
+
+
+
+@*Este es el componente padre *@
+<h3>Perfil del Producto</h3>
+
+@*Inyección al repositorio*@
+@inject IProductRepository ProductRepository
+
+<!--Paso el objeto user al componente ProductDetails-->
+<ProductDetails Product="product"/>
+
+@code {
+
+    private Product product;
+
+
+    // Utilizo el método
+    protected override void OnInitialized()
+    {
+        //Obtener el producto del repositorio
+        product = ProductRepository.GetProduct(19);
+
+        //Esta es una validación para que se ejecute antes del componente hijo
+        Console.WriteLine(product != null ? "Producto obtenido correctamente" : "No se obtuvo ningún producto");
+    }
+
+
+
+}
